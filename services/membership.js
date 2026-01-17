@@ -61,7 +61,7 @@ export const getUserMembers = async () => {
 export const addUser = async (membershipId, username, password_hash, role
 ) =>{
     // check if user exists
-    const checkQuery = `SELECT * FROM interlifer.users WHERE username = $1`;
+    const checkQuery = `SELECT membership_id FROM interlifer.users WHERE username = $1`;
     const checkValues = [username];
     console.log("Checking if username exists:", username);
     const checkResult = await dbPool.query(checkQuery, checkValues);

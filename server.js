@@ -10,6 +10,13 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+// app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173","https://interlifer-ims.netlify.app"],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 // text api endpoint
 app.get('/test',(req,res) =>{
 
@@ -21,7 +28,6 @@ app.get('/test',(req,res) =>{
 const baseApiUrl = '/api/v1';
 
 
-app.use(cors());
 app.use(express.json())
 
 //membership routes
