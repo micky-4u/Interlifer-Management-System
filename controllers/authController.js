@@ -19,7 +19,7 @@ export const loginUser = async (req, res) =>{
             if(err){
                 return res.status(500).json({message: "Error generating token", error: err.message});
             }
-            res.status(200).json({message: "Login successful",data:user, token: token});
+            res.status(200).json({message: "Login successful",user:user, token: token});
         });
 
     }
